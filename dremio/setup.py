@@ -3,7 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name="dremio",
     version="0.1.0",
-    packages=find_packages(),
+    packages=["dremio"],
+    package_dir={"dremio": "."},
     install_requires=[
         "pandas",
         "python-dotenv"

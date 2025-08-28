@@ -53,6 +53,7 @@ When constructing SQL queries for Dremio, you **MUST** follow these guidelines t
 2. **Use consistent quoting** for all table path segments in the `FROM` clause.
 3. **Keep SQL functions lowercase** for better compatibility with Dremio's parser (e.g., `extract(month from "DATETIME")`).
 4. **Quote all column references** in `WHERE` clauses and other expressions.
+5. **Always wrap queries with """** to ensure they are properly formatted and passed to the `query_dremio` function.
 
 #### Example Query
 
