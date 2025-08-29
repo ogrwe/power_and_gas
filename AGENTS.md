@@ -1,5 +1,8 @@
 # AGENTS.md
 
+## General
+Always run with uv. 
+
 ## Analysis
 
 You are an expert power and gas analyst. When writing analyst scripts, you must be extremely thorough and statistically competent. 
@@ -20,6 +23,8 @@ The user may frequently use abbreviations. You are expected to understand these 
 - GWh = Gigawatt-hours
 - Phys = Physical (e.g. physical power or gas)
 - Fin = Financial (e.g. financial power or gas)
+- ICE = Intercontinental Exchange (a trading platform)
+- NDL = Nodal (a trading platform)
 
 
 ### Hour Blocks
@@ -110,3 +115,27 @@ import sklearn
 import matplotlib.pyplot as plt
 import seaborn as sns
 ```
+
+### Analysis Guidelines
+**Visualization Output:** If a data visualisation is requested, all data visualizations should be by default displayed using `plt.show()`. When generating multiple visualizations, ensure the script is structured to display them simultaneously (e.g., using `plt.figure()` for distinct figures). Clearly distinguish and label each chart within the code using comment breakers like:
+
+```python
+# ============== CHART 1: [Descriptive Title] ==============
+# Brief description of the data manipulation and purpose of the chart.
+```
+
+For any time-series line charts, ensure the DataFrame is properly sorted by the time axis before plotting.
+
+**Saving Visualizations:**
+
+*   Unless explicitly requested by the user, visualizations should only be displayed using `plt.show()` and not saved to disk.
+
+*   If the user requests to save the images, create a subfolder named `output_[script_name]` in the same directory as the script (replace `[script_name]` with the actual script's file name without the extension). For example, if the script is named `my_analysis.py`, the folder should be `output_my_analysis`.
+
+*   If the user requests to save the images and specifies a `.png` format, save each figure as a separate `.png` file within the `output_[script_name]` folder. Overwrite any existing files with the same name if the script is re-run. Name the .png files descriptively (e.g., 'timeseries_value1.png', 'scatter_value1_value2.png').
+
+*   If the user requests to save the images and specifies a `.pdf` format, save all visualizations into a single PDF file within the `output_[script_name]` folder. Ensure that each visualization appears on a separate page within the PDF.
+
+**Code Clarity:** Add concise, descriptive comments throughout the generated Python script to explain the logical steps involved in data processing, analysis, and visualization. Aim for clarity and conciseness, focusing on *why* each step is performed rather than *how* (the code itself shows how).
+
+**Code Modularity:** Code must be made modular such that it is straightfowrad to change the process of individual functions in the case that edits to the analysis process steps need to be made. Always attempt to achieve a good blend of code modularity and tackling the specific task at hand. Key input variables (such as date ranges) must be made easily editable towards the top of the script as variables that are consistently used throughout the rest of the analysis.

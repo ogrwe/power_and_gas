@@ -295,7 +295,7 @@ class DremioCacheManager:
         max_age = timedelta(hours=max_age_hours)
         return datetime.now() - file_time < max_age
     
-    def get_data(self, query, max_age_hours=24, force_refresh=False):
+    def get_data(self, query, max_age_hours=1, force_refresh=False):
         """
         Get data for a query, using cache if available and not too old.
         

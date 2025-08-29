@@ -1,3 +1,5 @@
+The following is a list of all packages installed in the Databricks environment. These are the ONLY packages that can be used in the Databricks environment. Do NOT use any other packages.
+
 Package                  Version
 ------------------------ -------------
 appdirs                  1.4.4
